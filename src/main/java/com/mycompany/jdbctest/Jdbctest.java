@@ -36,7 +36,15 @@ public class Jdbctest {
             
             //Actualizacion de datos
             
-            statement.execute("UPDATE `usuarios` SET `nombre` = 'afelipe' WHERE `usuarios`.`id` = 3;");
+            statement.execute("UPDATE `usuarios` SET `nombre` = 'cardonaEgas' WHERE `usuarios`.`id` = 3;");
+            System.out.println("");
+            rs = statement.executeQuery("SELECT * FROM usuarios");
+            while(rs.next()) {
+                System.out.println(rs.getString("nombre"));
+            }
+            
+            //Eliminacion de datos
+            statement.execute("DELETE FROM usuarios WHERE `usuarios`.`id` = 4");
             System.out.println("");
             rs = statement.executeQuery("SELECT * FROM usuarios");
             while(rs.next()) {
