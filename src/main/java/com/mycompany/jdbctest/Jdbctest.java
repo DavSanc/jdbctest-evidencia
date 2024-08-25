@@ -25,8 +25,27 @@ public class Jdbctest {
             while(rs.next()) {
                 System.out.println(rs.getString("nombre"));
             }
+      
+            // Insertar datos
+            statement.execute("INSERT INTO `usuarios` (`id`, `nombre`) VALUES (NULL, 'cdiaz');");
+            System.out.println("");
+            rs = statement.executeQuery("SELECT * FROM usuarios");
+            while(rs.next()) {
+                System.out.println(rs.getString("nombre"));
+            }
+            
+            //Actualizacion de datos
+            
+            statement.execute("UPDATE `usuarios` SET `nombre` = 'afelipe' WHERE `usuarios`.`id` = 3;");
+            System.out.println("");
+            rs = statement.executeQuery("SELECT * FROM usuarios");
+            while(rs.next()) {
+                System.out.println(rs.getString("nombre"));
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(Jdbctest.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
     }
